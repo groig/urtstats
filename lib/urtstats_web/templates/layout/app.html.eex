@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>El Parque · Urban Terror Server Stats</title>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+  </head>
+  <body>
+    <header class="body-font text-gray-700">
+      <div class="container bg-gray-200 mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+        <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0" href="<%= Routes.page_path(@conn, :index) %>" >
+          <img src="<%= Routes.static_path(@conn, "/images/logo.jpg") %>" alt="logo" class="w-12 h-12 rounded-full"/>
+          <span class="ml-3 text-xl">El Parque</span>
+        </a>
+        <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+          <%= link "All Players", to: Routes.page_path(@conn, :players), class: "mr-10 hover:text-gray-900"%>
+          <%= link "Weapons", to: Routes.page_path(@conn, :weapons), class: "mr-10 hover:text-gray-900"%>
+          <%= link "Maps", to: Routes.page_path(@conn, :maps), class: "mr-10 hover:text-gray-900"%>
+        </nav>
+        <a class="inline-flex items-center text-base mt-4 md:mt-0" href="https://t.me/urtcuba">Contact</a>
+      </div>
+    </header>
+    <%= @inner_content %>
+  </body>
+</html>

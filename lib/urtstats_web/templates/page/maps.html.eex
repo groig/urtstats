@@ -1,0 +1,50 @@
+<div class="container mx-auto px-4 sm:px-8 ">
+    <div class="py-2">
+        <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+            <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
+                <table class="min-w-full leading-normal">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="table-header-first">
+                                Map
+                            </th>
+                            <th scope="col" class="table-header">
+                                Rounds
+                            </th>
+                            <th scope="col" class="table-header">
+                                Kills
+                            </th>
+                            <th scope="col" class="table-header">
+                                Team Kills
+                            </th>
+                            <th scope="col" class="table-header">
+                                Suicides
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <%= for map <- @maps do %>
+                        <tr>
+                            <td class="table-data-first">
+                              <%= map.name %>
+                            </td>
+                            <td class="table-data">
+                              <%= map.rounds %>
+                            </td>
+                            <td class="table-data">
+                              <%= map.kills %>
+                            </td>
+                            <td class="table-data">
+                              <%= map.teamkills %>
+                            </td>
+                            <td class="table-data">
+                              <%= map.suicides %>
+                            </td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

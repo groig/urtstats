@@ -1,0 +1,87 @@
+<div class="container mx-auto px-4 sm:px-8 ">
+    <div class="py-2">
+        <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+            <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
+                <table class="min-w-full leading-normal">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="table-header-first">
+                                Player
+                            </th>
+                            <th scope="col" class="table-header">
+                                Skill
+                            </th>
+                            <th scope="col" class="table-header">
+                                Ratio
+                            </th>
+                            <th scope="col" class="table-header">
+                                Kills
+                            </th>
+                            <th scope="col" class="table-header">
+                                Deaths
+                            </th>
+                            <th scope="col" class="table-header">
+                                Team Kills
+                            </th>
+                            <th scope="col" class="table-header">
+                                Team Deaths
+                            </th>
+                            <th scope="col" class="table-header">
+                                Assists
+                            </th>
+                            <th scope="col" class="table-header">
+                                Kill Streak
+                            </th>
+                            <th scope="col" class="table-header">
+                                Win Streak
+                            </th>
+                            <th scope="col" class="table-header">
+                                Lose Streak
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <%= for player <- @players do %>
+                        <tr>
+                            <td class="table-data-first">
+                              <%= player.name %>
+                            </td>
+                            <td class="table-data">
+                              <%= Decimal.round(player.stats.skill, 2) %>
+                            </td>
+                            <td class="table-data">
+                              <%= Decimal.round(player.stats.ratio, 2) %>
+                            </td>
+                            <td class="table-data">
+                              <%= player.stats.kills %>
+                            </td>
+                            <td class="table-data">
+                              <%= player.stats.deaths %>
+                            </td>
+                            <td class="table-data">
+                              <%= player.stats.teamkills %>
+                            </td>
+                            <td class="table-data">
+                              <%= player.stats.teamdeaths %>
+                            </td>
+                            <td class="table-data">
+                              <%= player.stats.assists %>
+                            </td>
+                            <td class="table-data">
+                              <%= player.stats.curstreak %>
+                            </td>
+                            <td class="table-data">
+                              <%= player.stats.winstreak %>
+                            </td>
+
+                            <td class="table-data">
+                              <%= player.stats.losestreak %>
+                            </td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

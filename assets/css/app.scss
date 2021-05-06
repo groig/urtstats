@@ -1,0 +1,21 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@layer components {
+    .table-header-first {
+        @apply bg-gray-200 pl-2 py-2 border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal text-left;
+    }
+    .table-header {
+        @apply bg-gray-200 pr-2 py-2 border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal text-right;
+    }
+    .table-data-first {
+        @apply pl-2 py-3 border-b border-gray-200 bg-white text-sm text-left;
+    }
+    .table-data {
+        @apply pr-2 py-3 border-b border-gray-200 bg-white text-sm text-right;
+    }
+}
+
