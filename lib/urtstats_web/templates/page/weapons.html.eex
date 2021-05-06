@@ -23,7 +23,7 @@
                       <%= for weapon <- @weapons do %>
                         <tr>
                             <td class="table-data-first">
-                              <%= weapon.name %>
+                              <%= Urtstats.Stats.Weapon.get_weapon_name(weapon.name) %>
                             </td>
                             <td class="table-data">
                               <%= weapon.kills %>

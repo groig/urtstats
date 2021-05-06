@@ -1013,7 +1013,10 @@ COPY public.aliases (id, num_used, alias, client_id, time_add, time_edit) FROM s
 COPY public.clients (id, ip, connections, guid, pbid, name, auto_login, mask_level, group_bits, greeting, time_add, time_edit, password, login) FROM stdin;
 1		4	WORLD	WORLD	World	1	0	0		1620163822	1620166612		
 3	152.207.249.79	1	AEFDA1E5DC62752B8CD47A096CC3E17C		Melon_Sultano	1	0	0		1620168001	1620168004		
-2	152.207.113.50	3	AB736EFF306B893ED34AF279F16F47C2		XIII	1	0	128		1620164353	1620170824		
+2	152.207.113.50	7	AB736EFF306B893ED34AF279F16F47C2	roig	XIII	1	0	128		1620164353	1620180956		
+4	172.2.50.254	7	265D0EFB67B3512261C79944D45EBBAB		ppthunder	1	0	64		1620176525	1620180969		
+5	152.207.112.159	7	C510CF02E29DE2A4503115DDF6420314		AK103	1	0	64		1620177298	1620181254		
+6	152.206.187.43	3	B3430D20783A7AD98C7C6C8300C48F57		ineedcoffee	1	0	1		1620186847	1620266245		
 \.
 
 
@@ -1038,7 +1041,6 @@ COPY public.ctime (id, guid, came, gone, nick) FROM stdin;
 --
 
 COPY public.current_clients (id, updated, name, level, dbid, cid, joined, connections, state, score, ip, guid, pbid, team, colorname) FROM stdin;
-1	Tue May  4 19:27:04 2021	XIII	100	2	0	Tue May  4 17:39:13 2021	3	2	0	152.207.113.50	AB736EFF306B893ED34AF279F16F47C2		-1	^1^1XIII^7
 \.
 
 
@@ -1051,15 +1053,15 @@ COPY public.current_svars (id, name, value) FROM stdin;
 2	Port	27960
 3	Name	iourt43
 4	Type	ffa
-5	Map	ut4_abbey
+5	Map	ut4_suburbs
 6	TimeLimit	20
 7	FragLimit	20
 8	CaptureLimit	0
 9	Rounds	
-10	RoundTime	4271
-11	MapTime	692
-12	OnlinePlayers	1
-13	lastupdate	1620170882
+10	RoundTime	166391
+11	MapTime	683
+12	OnlinePlayers	0
+13	lastupdate	1620333002
 14	gamename	q3urt43
 15	protocol	68
 16	g_enableDust	0
@@ -1071,10 +1073,10 @@ COPY public.current_svars (id, name, value) FROM stdin;
 22	g_stratTime	5
 23	auth_notoriety	0
 24	sv_clientsPerIp	3
-25	_mapTimeStart	1620170190
+25	_mapTimeStart	1620332319
 26	auth_status	public
 27	rounds	0
-28	_mapName	ut4_abbey
+28	_mapName	ut4_suburbs
 29	g_suddendeath	0
 30	console	<b3.parsers.iourt43.Iourt43Parser object at 0x7f4925f41cd0>
 31	g_redwave	15
@@ -1154,6 +1156,7 @@ COPY public.groups (id, name, keyword, level, time_edit, time_add) FROM stdin;
 --
 
 COPY public.ipaliases (id, num_used, ip, client_id, time_add, time_edit) FROM stdin;
+1	1	152.207.244.89	6	1620266245	1620266245
 \.
 
 
@@ -1162,6 +1165,7 @@ COPY public.ipaliases (id, num_used, ip, client_id, time_add, time_edit) FROM st
 --
 
 COPY public.penalties (id, type, client_id, admin_id, duration, inactive, keyword, reason, data, time_add, time_edit, time_expire) FROM stdin;
+1	Kick	4	0	0	0	None	AFK for too long on this server		1620180811	1620180811	-1
 \.
 
 
@@ -1179,6 +1183,16 @@ COPY public.xlr_actionstats (id, name, count) FROM stdin;
 
 COPY public.xlr_bodyparts (id, name, kills, teamkills, suicides) FROM stdin;
 1	body	0	0	1
+9	5	2	0	0
+7	9	3	0	0
+11	12	1	0	0
+2	2	8	0	0
+4	1	16	0	0
+10	3	6	0	0
+5	10	4	0	0
+3	4	43	0	0
+6	7	6	0	1
+8	6	4	0	0
 \.
 
 
@@ -1203,12 +1217,34 @@ COPY public.xlr_history_weekly (id, client_id, kills, deaths, teamkills, teamdea
 --
 
 COPY public.xlr_mapstats (id, name, kills, teamkills, suicides, rounds) FROM stdin;
-1	ut4_prominence	0	0	0	0
-2	ut4_cascade	0	0	0	1
-3	ut4_prague	0	0	0	1
-4	ut4_ghosttown	0	0	1	1
-5	ut4_algiers	0	0	0	1
-6	ut4_abbey	0	0	0	1
+8	ut4_herring	0	0	0	5
+9	ut41_headtown_a4	0	0	0	5
+10	ut4_mykonos_a17	0	0	0	5
+11	ut4_thingley	0	0	0	5
+12	ut4_oildepot	17	0	0	5
+13	ut4_company	30	0	1	5
+14	ut4_kingdom	1	0	0	5
+15	ut4_tombs	0	0	0	5
+24	ut4_mandolin	0	0	0	4
+25	ut4_kingpin	0	0	0	4
+26	ut4_subway	0	0	0	4
+27	ut4_paris	0	0	0	4
+28	ut4_raiders	0	0	0	4
+16	ut4_killroom	45	0	0	5
+17	ut4_bohemia	0	0	0	5
+18	ut4_casa	0	0	0	5
+19	ut4_sanc	0	0	0	5
+20	ut4_riyadh	0	0	0	5
+21	ut4_uptown	0	0	0	5
+22	ut4_turnpike	0	0	0	5
+23	ut4_austria	0	0	0	5
+1	ut4_prominence	0	0	0	5
+2	ut4_cascade	0	0	0	6
+3	ut4_prague	0	0	0	6
+4	ut4_ghosttown	0	0	1	6
+5	ut4_algiers	0	0	0	6
+6	ut4_abbey	0	0	0	6
+7	ut4_suburbs	0	0	0	6
 \.
 
 
@@ -1217,6 +1253,12 @@ COPY public.xlr_mapstats (id, name, kills, teamkills, suicides, rounds) FROM std
 --
 
 COPY public.xlr_opponents (id, target_id, killer_id, kills, retals) FROM stdin;
+6	4	2	12	10
+5	2	4	10	12
+3	2	5	3	8
+4	5	2	8	3
+1	5	4	21	39
+2	4	5	39	21
 \.
 
 
@@ -1234,6 +1276,32 @@ COPY public.xlr_playeractions (id, action_id, player_id, count) FROM stdin;
 
 COPY public.xlr_playerbody (id, bodypart_id, player_id, kills, deaths, teamkills, teamdeaths, suicides) FROM stdin;
 1	1	3	0	0	0	0	1
+9	5	5	2	2	0	0	0
+8	5	4	2	2	0	0	0
+12	7	4	3	0	0	0	0
+24	7	2	0	2	0	0	0
+25	11	2	1	0	0	0	0
+26	11	5	0	1	0	0	0
+14	8	5	3	1	0	0	0
+15	8	4	1	3	0	0	0
+2	2	4	7	0	0	0	0
+3	2	5	1	4	0	0	0
+10	6	5	2	3	0	0	1
+21	10	4	4	0	0	0	0
+6	4	5	11	0	0	0	0
+13	7	5	0	1	0	0	0
+17	3	2	11	0	0	0	0
+16	2	2	0	4	0	0	0
+20	9	2	1	1	0	0	0
+19	9	4	1	1	0	0	0
+23	4	2	5	0	0	0	0
+7	4	4	0	16	0	0	0
+27	10	5	2	0	0	0	0
+22	10	2	0	6	0	0	0
+5	3	4	11	26	0	0	0
+4	3	5	21	17	0	0	0
+18	6	2	2	0	0	0	0
+11	6	4	2	3	0	0	0
 \.
 
 
@@ -1246,6 +1314,24 @@ COPY public.xlr_playermaps (id, map_id, player_id, kills, deaths, teamkills, tea
 2	4	3	0	0	0	0	1	1
 3	4	2	0	0	0	0	0	1
 4	6	2	0	0	0	0	0	1
+5	7	2	0	0	0	0	0	1
+6	11	4	0	0	0	0	0	3
+7	11	5	0	0	0	0	0	1
+14	14	2	0	1	0	0	0	1
+13	14	5	1	0	0	0	0	5
+15	15	5	0	0	0	0	0	1
+8	12	5	12	5	0	0	0	1
+9	12	4	5	12	0	0	0	6
+16	16	5	10	13	0	0	0	3
+18	16	2	20	12	0	0	0	1
+17	16	4	15	20	0	0	0	1
+19	17	5	0	0	0	0	0	1
+20	21	6	0	0	0	0	0	1
+21	22	6	0	0	0	0	0	1
+22	8	6	0	0	0	0	0	1
+11	13	5	19	11	0	0	1	1
+10	13	4	11	19	0	0	0	3
+12	14	4	0	0	0	0	0	2
 \.
 
 
@@ -1255,8 +1341,11 @@ COPY public.xlr_playermaps (id, map_id, player_id, kills, deaths, teamkills, tea
 
 COPY public.xlr_playerstats (id, client_id, kills, deaths, teamkills, teamdeaths, suicides, ratio, skill, assists, assistskill, curstreak, winstreak, losestreak, rounds, hide, fixed_name, id_token) FROM stdin;
 1	1	0	0	0	0	0	0	1000	0	0	0	0	0	0	1		
-3	3	0	0	0	0	1	0	999.5	0	0	-1	0	-1	1	0		
-2	2	0	0	0	0	0	0	1000	0	0	0	0	0	3	0		
+3	3	0	0	0	0	1	0	995.985395005588	0	0	-1	0	-1	1	0		
+4	4	22	38	0	0	0	0.578947368421	1065.8914276416547	3	14.0445864697	1	3	-5	15	0		
+2	2	20	12	0	0	0	1.66666666667	1146.2916088042396	1	3.68768327118	1	4	-2	6	0		
+5	5	37	23	0	0	1	1.60869565217	1134.108572357481	1	3.48225273552	-1	5	-4	13	0		
+6	6	0	0	0	0	0	0	996.483636824	0	0	0	0	0	3	0		
 \.
 
 
@@ -1266,6 +1355,14 @@ COPY public.xlr_playerstats (id, client_id, kills, deaths, teamkills, teamdeaths
 
 COPY public.xlr_weaponstats (id, name, kills, teamkills, suicides) FROM stdin;
 1	25	0	0	1
+3	39	1	0	0
+4	23	1	0	0
+6	18	2	0	0
+5	mod_falling	0	0	1
+9	20	10	0	0
+2	30	54	0	0
+7	38	15	0	0
+8	44	10	0	0
 \.
 
 
@@ -1275,6 +1372,25 @@ COPY public.xlr_weaponstats (id, name, kills, teamkills, suicides) FROM stdin;
 
 COPY public.xlr_weaponusage (id, weapon_id, player_id, kills, deaths, teamkills, teamdeaths, suicides) FROM stdin;
 1	1	3	0	0	0	0	1
+4	3	5	1	0	0	0	0
+5	3	4	0	1	0	0	0
+9	6	5	2	0	0	0	0
+10	6	4	0	2	0	0	0
+6	4	5	1	0	0	0	0
+7	4	4	0	1	0	0	0
+8	5	5	0	0	0	0	1
+13	7	2	0	10	0	0	0
+2	2	4	16	35	0	0	0
+15	8	5	0	4	0	0	0
+19	9	4	0	6	0	0	0
+16	9	2	10	0	0	0	0
+17	9	5	0	4	0	0	0
+3	2	5	38	16	0	0	0
+11	2	2	0	3	0	0	0
+12	7	4	15	0	0	0	0
+18	7	5	0	5	0	0	0
+14	8	2	10	0	0	0	0
+20	8	4	0	6	0	0	0
 \.
 
 
@@ -1289,7 +1405,7 @@ SELECT pg_catalog.setval('public.aliases_id_seq', 1, false);
 -- Name: clients_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.clients_id_seq', 3, true);
+SELECT pg_catalog.setval('public.clients_id_seq', 6, true);
 
 
 --
@@ -1310,7 +1426,7 @@ SELECT pg_catalog.setval('public.ctime_id_seq', 1, false);
 -- Name: current_clients_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.current_clients_id_seq', 1, true);
+SELECT pg_catalog.setval('public.current_clients_id_seq', 1, false);
 
 
 --
@@ -1324,14 +1440,14 @@ SELECT pg_catalog.setval('public.current_svars_id_seq', 75, true);
 -- Name: ipaliases_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.ipaliases_id_seq', 1, false);
+SELECT pg_catalog.setval('public.ipaliases_id_seq', 1, true);
 
 
 --
 -- Name: penalties_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.penalties_id_seq', 1, false);
+SELECT pg_catalog.setval('public.penalties_id_seq', 1, true);
 
 
 --
@@ -1345,7 +1461,7 @@ SELECT pg_catalog.setval('public.xlr_actionstats_id_seq', 1, false);
 -- Name: xlr_bodyparts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.xlr_bodyparts_id_seq', 1, true);
+SELECT pg_catalog.setval('public.xlr_bodyparts_id_seq', 11, true);
 
 
 --
@@ -1366,14 +1482,14 @@ SELECT pg_catalog.setval('public.xlr_history_weekly_id_seq', 1, false);
 -- Name: xlr_mapstats_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.xlr_mapstats_id_seq', 6, true);
+SELECT pg_catalog.setval('public.xlr_mapstats_id_seq', 28, true);
 
 
 --
 -- Name: xlr_opponents_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.xlr_opponents_id_seq', 1, false);
+SELECT pg_catalog.setval('public.xlr_opponents_id_seq', 6, true);
 
 
 --
@@ -1387,35 +1503,35 @@ SELECT pg_catalog.setval('public.xlr_playeractions_id_seq', 1, false);
 -- Name: xlr_playerbody_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.xlr_playerbody_id_seq', 1, true);
+SELECT pg_catalog.setval('public.xlr_playerbody_id_seq', 27, true);
 
 
 --
 -- Name: xlr_playermaps_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.xlr_playermaps_id_seq', 4, true);
+SELECT pg_catalog.setval('public.xlr_playermaps_id_seq', 22, true);
 
 
 --
 -- Name: xlr_playerstats_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.xlr_playerstats_id_seq', 3, true);
+SELECT pg_catalog.setval('public.xlr_playerstats_id_seq', 6, true);
 
 
 --
 -- Name: xlr_weaponstats_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.xlr_weaponstats_id_seq', 1, true);
+SELECT pg_catalog.setval('public.xlr_weaponstats_id_seq', 9, true);
 
 
 --
 -- Name: xlr_weaponusage_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.xlr_weaponusage_id_seq', 1, true);
+SELECT pg_catalog.setval('public.xlr_weaponusage_id_seq', 20, true);
 
 
 --
