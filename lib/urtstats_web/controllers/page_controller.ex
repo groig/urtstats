@@ -6,6 +6,7 @@ defmodule UrtstatsWeb.PageController do
     current_map = Urtstats.get_current_map()
     current_game_type = Urtstats.get_current_gametype()
     current_clients = Urtstats.all_clients()
+
     render(conn, "index.html",
       players: players,
       current_map: current_map.value,
@@ -28,6 +29,12 @@ defmodule UrtstatsWeb.PageController do
     maps = Urtstats.all_maps()
     render(conn, "maps.html", maps: maps)
   end
+
+  def penalties(conn, _params) do
+    penalties = Urtstats.all_penalties()
+    render(conn, "penalties.html", penalties: penalties)
+  end
+
   def donate(conn, _params) do
     render(conn, "donate.html")
   end

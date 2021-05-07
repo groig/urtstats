@@ -20,6 +20,7 @@ defmodule UrtstatsWeb.Router do
     get "/players", PageController, :players
     get "/weapons", PageController, :weapons
     get "/maps", PageController, :maps
+    get "/penalties", PageController, :penalties
     get "/donate", PageController, :donate
   end
 

@@ -11,6 +11,7 @@ defmodule Urtstats do
   alias Urtstats.Stats.Weapon
   alias Urtstats.Stats.ServerVar
   alias Urtstats.Stats.Client
+  alias Urtstats.Stats.Penalty
   alias Urtstats.Repo
   import Ecto.Query
 
@@ -35,12 +36,16 @@ defmodule Urtstats do
     |> Repo.preload(:stats)
   end
 
+  def all_penalties do
+    Repo.all(Penalty) |> Repo.preload(:player)
+  end
+
   def all_maps do
-    Repo.all(Map)
+    Repo.all(from m in Map, order_by: [{:desc, m.kills}])
   end
 
   def all_weapons do
-    Repo.all(Weapon)
+    Repo.all(from w in Weapon, order_by: [{:desc, w.kills}])
   end
 
   def get_current_map do

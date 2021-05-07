@@ -1,0 +1,56 @@
+<div class="container mx-auto px-4 sm:px-8 ">
+    <div class="py-2">
+        <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+            <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
+                <table class="min-w-full leading-normal">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="table-header-first">
+                                Player
+                            </th>
+                            <th scope="col" class="table-header">
+                                Type
+                            </th>
+                            <th scope="col" class="table-header">
+                                Duration
+                            </th>
+                            <th scope="col" class="table-header">
+                                Reason
+                            </th>
+                            <th scope="col" class="table-header">
+                                Start
+                            </th>
+                            <th scope="col" class="table-header">
+                                End
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <%= for penalty <- @penalties do %>
+                        <tr>
+                            <td class="table-data-first">
+                              <%= penalty.player.name %>
+                            </td>
+                            <td class="table-data">
+                              <%= penalty.type %>
+                            </td>
+                            <td class="table-data">
+                              <%= penalty.duration %>
+                            </td>
+                            <td class="table-data">
+                              <%= penalty.reason %>
+                            </td>
+                            <td class="table-data">
+                              <%= convert_date(penalty.time_add) %>
+                            </td>
+                            <td class="table-data">
+                              <%= convert_date(penalty.time_expire) %>
+                            </td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
