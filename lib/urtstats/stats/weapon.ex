@@ -51,6 +51,7 @@ defmodule Urtstats.Stats.Weapon do
     field :kills, :integer
     field :teamkills, :integer
     field :suicides, :integer
+    has_many :players, Urtstats.Stats.WeaponUsage, foreign_key: :player_id
   end
 
   def get_weapon_name(id) do

@@ -36,6 +36,11 @@ defmodule Urtstats do
     |> Repo.preload(:stats)
   end
 
+  def player(player_id) do
+    Repo.one(from p in Player, where: p.id == ^player_id)
+    |> Repo.preload([:stats, :maps, :body_parts, :weapons, :fragged, :fragged_by])
+  end
+
   def all_penalties do
     Repo.all(Penalty) |> Repo.preload(:player)
   end

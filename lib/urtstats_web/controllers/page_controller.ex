@@ -20,6 +20,11 @@ defmodule UrtstatsWeb.PageController do
     render(conn, "players.html", players: players)
   end
 
+  def player(conn, %{"id" => id} = _params) do
+    player = Urtstats.player(id)
+    render(conn, "player.html", player: player)
+  end
+
   def weapons(conn, _params) do
     weapons = Urtstats.all_weapons()
     render(conn, "weapons.html", weapons: weapons)

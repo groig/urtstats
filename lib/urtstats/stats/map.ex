@@ -7,5 +7,6 @@ defmodule Urtstats.Stats.Map do
     field :kills, :integer
     field :teamkills, :integer
     field :suicides, :integer
+    has_many :players, Urtstats.Stats.PlayerMap, foreign_key: :map_id
   end
 end

@@ -44,7 +44,7 @@
                       <%= for player <- @players do %>
                         <tr>
                             <td class="table-data-first">
-                              <%= player.name %>
+                              <%= link player.name, to: Routes.page_path(@conn, :player, player.id), class: "mr-10 hover:text-gray-900"%>
                             </td>
                             <td class="table-data">
                               <%= Decimal.round(player.stats.skill, 2) %>
