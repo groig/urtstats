@@ -19,7 +19,8 @@
           <%= link "Weapons", to: Routes.page_path(@conn, :weapons), class: "mr-10 hover:text-gray-900"%>
           <%= link "Maps", to: Routes.page_path(@conn, :maps), class: "mr-10 hover:text-gray-900"%>
         </nav>
-        <a class="inline-flex items-center text-base mt-4 md:mt-0" href="https://t.me/urtcuba">Contact</a>
+        <a class="inline-flex items-center text-base mt-4 md:mt-0 mr-5" href="https://t.me/urtcuba">Contact</a>
+        <%= link "Donate", to: Routes.page_path(@conn, :donate), class: "inline-flex items-center text-base mt-4 md:mt-0"%>
       </div>
     </header>
     <%= @inner_content %>

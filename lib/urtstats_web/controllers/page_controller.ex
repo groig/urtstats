@@ -28,4 +28,7 @@ defmodule UrtstatsWeb.PageController do
     maps = Urtstats.all_maps()
     render(conn, "maps.html", maps: maps)
   end
+  def donate(conn, _params) do
+    render(conn, "donate.html")
+  end
 end
