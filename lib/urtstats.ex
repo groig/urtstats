@@ -37,26 +37,36 @@ defmodule Urtstats do
   end
 
   def player(player_id) do
+    Repo.one(from p in Player, where: p.id == ^player_id)
+    |> Repo.preload(:stats)
+    |> Repo.preload([maps: [:map]])
+    |> Repo.preload(:body_parts)
+    |> Repo.preload([weapons: [:weapon]])
+    |> Repo.preload([fragged: [:target]])
+    |> Repo.preload([fragged_by: [:killer]])
+  end
+
+  def player_join(player_id) do
     Repo.one(
       from p in Player,
         where: p.id == ^player_id,
-        left_join: stats in assoc(p, :stats),
-        left_join: weapons in assoc(p, :weapons),
-        left_join: weapon in assoc(weapons, :weapon),
-        left_join: maps in assoc(p, :maps),
-        left_join: map in assoc(maps, :map),
-        left_join: body_parts in assoc(p, :body_parts),
-        left_join: fragged in assoc(p, :fragged),
-        left_join: target in assoc(fragged, :target),
-        left_join: fragged_by in assoc(p, :fragged_by),
-        left_join: killer in assoc(fragged_by, :killer),
+        inner_join: stats in assoc(p, :stats),
+        inner_join: weapons in assoc(p, :weapons),
+        inner_join: weapon in assoc(weapons, :weapon),
+        inner_join: maps in assoc(p, :maps),
+        inner_join: map in assoc(maps, :map),
+        inner_join: body_parts in assoc(p, :body_parts),
+        inner_join: fragged in assoc(p, :fragged),
+        inner_join: target in assoc(fragged, :target),
+        inner_join: fragged_by in assoc(p, :fragged_by),
+        inner_join: killer in assoc(fragged_by, :killer),
         preload: [
           stats: stats,
           weapons: {weapons, weapon: weapon},
           maps: {maps, map: map},
           body_parts: body_parts,
           fragged: {fragged, target: target},
-          fragged_by: {fragged_by, killer: killer},
+          fragged_by: {fragged_by, killer: killer}
         ]
     )
   end
