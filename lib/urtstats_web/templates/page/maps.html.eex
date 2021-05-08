@@ -2,22 +2,22 @@
     <div class="py-2">
         <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
             <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
-                <table class="min-w-full leading-normal">
+                <table>
                     <thead>
                         <tr>
-                            <th scope="col" class="table-header-first">
+                            <th scope="col">
                                 Map
                             </th>
-                            <th scope="col" class="table-header">
+                            <th scope="col">
                                 Rounds
                             </th>
-                            <th scope="col" class="table-header">
+                            <th scope="col">
                                 Kills
                             </th>
-                            <th scope="col" class="table-header">
+                            <th scope="col">
                                 Team Kills
                             </th>
-                            <th scope="col" class="table-header">
+                            <th scope="col">
                                 Suicides
                             </th>
                         </tr>
@@ -25,19 +25,19 @@
                     <tbody>
                       <%= for map <- @maps do %>
                         <tr>
-                            <td class="table-data-first">
+                            <td>
                               <%= map.name %>
                             </td>
-                            <td class="table-data">
+                            <td>
                               <%= map.rounds %>
                             </td>
-                            <td class="table-data">
+                            <td>
                               <%= map.kills %>
                             </td>
-                            <td class="table-data">
+                            <td>
                               <%= map.teamkills %>
                             </td>
-                            <td class="table-data">
+                            <td>
                               <%= map.suicides %>
                             </td>
                         </tr>

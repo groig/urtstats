@@ -2,40 +2,40 @@
     <div class="py-2">
         <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
             <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
-                <table class="min-w-full leading-normal">
+                <table>
                     <thead>
                         <tr>
-                            <th scope="col" class="table-header-first">
+                            <th scope="col">
                                 Player
                             </th>
-                            <th scope="col" class="table-header">
+                            <th scope="col">
                                 Skill
                             </th>
-                            <th scope="col" class="table-header">
+                            <th scope="col">
                                 Ratio
                             </th>
-                            <th scope="col" class="table-header">
+                            <th scope="col">
                                 Kills
                             </th>
-                            <th scope="col" class="table-header">
+                            <th scope="col">
                                 Deaths
                             </th>
-                            <th scope="col" class="table-header">
+                            <th scope="col">
                                 Team Kills
                             </th>
-                            <th scope="col" class="table-header">
+                            <th scope="col">
                                 Team Deaths
                             </th>
-                            <th scope="col" class="table-header">
+                            <th scope="col">
                                 Assists
                             </th>
-                            <th scope="col" class="table-header">
+                            <th scope="col">
                                 Kill Streak
                             </th>
-                            <th scope="col" class="table-header">
+                            <th scope="col">
                                 Win Streak
                             </th>
-                            <th scope="col" class="table-header">
+                            <th scope="col">
                                 Lose Streak
                             </th>
                         </tr>
@@ -43,38 +43,37 @@
                     <tbody>
                       <%= for player <- @players do %>
                         <tr>
-                            <td class="table-data-first">
+                            <td>
                               <%= link player.name, to: Routes.page_path(@conn, :player, player.id), class: "mr-10 hover:text-gray-900"%>
                             </td>
-                            <td class="table-data">
+                            <td>
                               <%= Decimal.round(player.stats.skill, 2) %>
                             </td>
-                            <td class="table-data">
+                            <td>
                               <%= Decimal.round(player.stats.ratio, 2) %>
                             </td>
-                            <td class="table-data">
+                            <td>
                               <%= player.stats.kills %>
                             </td>
-                            <td class="table-data">
+                            <td>
                               <%= player.stats.deaths %>
                             </td>
-                            <td class="table-data">
+                            <td>
                               <%= player.stats.teamkills %>
                             </td>
-                            <td class="table-data">
+                            <td>
                               <%= player.stats.teamdeaths %>
                             </td>
-                            <td class="table-data">
+                            <td>
                               <%= player.stats.assists %>
                             </td>
-                            <td class="table-data">
+                            <td>
                               <%= player.stats.curstreak %>
                             </td>
-                            <td class="table-data">
+                            <td>
                               <%= player.stats.winstreak %>
                             </td>
-
-                            <td class="table-data">
+                            <td>
                               <%= player.stats.losestreak %>
                             </td>
                         </tr>

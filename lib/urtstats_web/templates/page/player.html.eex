@@ -130,22 +130,22 @@
   </div>
   <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
       <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
-          <table class="min-w-full leading-normal">
+          <table>
               <thead>
                   <tr>
-                      <th scope="col" class="table-header-first">
+                      <th scope="col">
                           Name
                       </th>
-                      <th scope="col" class="table-header">
+                      <th scope="col">
                           Kills
                       </th>
-                      <th scope="col" class="table-header">
+                      <th scope="col">
                           Deaths
                       </th>
-                      <th scope="col" class="table-header">
+                      <th scope="col">
                           Team Kills
                       </th>
-                      <th scope="col" class="table-header">
+                      <th scope="col">
                           Team Deaths
                       </th>
                   </tr>
@@ -153,30 +153,20 @@
               <tbody>
                 <%= for weapon <- @player.weapons do %>
                   <tr>
-                      <td class="table-data-first">
-                          <p class="text-gray-900 whitespace-no-wrap">
+                      <td>
                               <%= Urtstats.Stats.Weapon.get_weapon_name(weapon.weapon.name) %>
-                          </p>
                       </td>
-                      <td class="table-data">
-                          <p class="text-gray-900 whitespace-no-wrap">
+                      <td>
                             <%= weapon.kills %>
-                          </p>
                       </td>
-                      <td class="table-data">
-                          <p class="text-gray-900 whitespace-no-wrap">
+                      <td>
                             <%= weapon.deaths %>
-                          </p>
                       </td>
-                      <td class="table-data">
-                          <p class="text-gray-900 whitespace-no-wrap">
+                      <td>
                             <%= weapon.teamkills %>
-                          </p>
                       </td>
-                      <td class="table-data">
-                          <p class="text-gray-900 whitespace-no-wrap">
+                      <td>
                             <%= weapon.teamdeaths %>
-                          </p>
                       </td>
                   </tr>
                 <% end %>
@@ -191,13 +181,13 @@
   </div>
   <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
       <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
-          <table class="min-w-full leading-normal">
+          <table>
               <thead>
                   <tr>
-                      <th scope="col" class="table-header-first">
+                      <th scope="col">
                           Name
                       </th>
-                      <th scope="col" class="table-header">
+                      <th scope="col">
                           Kills
                       </th>
                   </tr>
@@ -205,15 +195,11 @@
               <tbody>
                 <%= for fragged <- @player.fragged do %>
                   <tr>
-                      <td class="table-data-first">
-                          <p class="text-gray-900 whitespace-no-wrap">
-                              <%= fragged.target.name %>
-                          </p>
+                      <td>
+                        <%= link fragged.target.name, to: Routes.page_path(@conn, :player, fragged.target.id), class: "mr-10 hover:text-gray-900"%>
                       </td>
-                      <td class="table-data">
-                          <p class="text-gray-900 whitespace-no-wrap">
-                            <%= fragged.kills %>
-                          </p>
+                      <td>
+                        <%= fragged.kills %>
                       </td>
                   </tr>
                 <% end %>
@@ -228,13 +214,13 @@
   </div>
   <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
       <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
-          <table class="min-w-full leading-normal">
+          <table>
               <thead>
                   <tr>
-                      <th scope="col" class="table-header-first">
+                      <th scope="col">
                           Name
                       </th>
-                      <th scope="col" class="table-header">
+                      <th scope="col">
                           Deaths
                       </th>
                   </tr>
@@ -242,15 +228,11 @@
               <tbody>
                 <%= for fragged_by <- @player.fragged_by do %>
                   <tr>
-                      <td class="table-data-first">
-                          <p class="text-gray-900 whitespace-no-wrap">
-                              <%= fragged_by.killer.name %>
-                          </p>
+                    <td>
+                        <%= link fragged_by.killer.name, to: Routes.page_path(@conn, :player, fragged_by.killer.id), class: "mr-10 hover:text-gray-900"%>
                       </td>
-                      <td class="table-data">
-                          <p class="text-gray-900 whitespace-no-wrap">
-                            <%= fragged_by.kills %>
-                          </p>
+                      <td>
+                        <%= fragged_by.kills %>
                       </td>
                   </tr>
                 <% end %>
@@ -265,22 +247,22 @@
   </div>
   <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
       <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
-          <table class="min-w-full leading-normal">
+          <table>
               <thead>
                   <tr>
-                      <th scope="col" class="table-header-first">
+                      <th scope="col">
                           Name
                       </th>
-                      <th scope="col" class="table-header">
+                      <th scope="col">
                           Kills
                       </th>
-                      <th scope="col" class="table-header">
+                      <th scope="col">
                           Deaths
                       </th>
-                      <th scope="col" class="table-header">
+                      <th scope="col">
                           Team Kills
                       </th>
-                      <th scope="col" class="table-header">
+                      <th scope="col">
                           Team Deaths
                       </th>
                   </tr>
@@ -288,30 +270,20 @@
               <tbody>
                 <%= for part <- @player.body_parts do %>
                   <tr>
-                      <td class="table-data-first">
-                          <p class="text-gray-900 whitespace-no-wrap">
-                              <%= Urtstats.Stats.PlayerBody.get_body_part_name(part.bodypart_id) %>
-                          </p>
+                      <td>
+                        <%= Urtstats.Stats.PlayerBody.get_body_part_name(part.bodypart_id) %>
                       </td>
-                      <td class="table-data">
-                          <p class="text-gray-900 whitespace-no-wrap">
-                            <%= part.kills %>
-                          </p>
+                      <td>
+                        <%= part.kills %>
                       </td>
-                      <td class="table-data">
-                          <p class="text-gray-900 whitespace-no-wrap">
-                            <%= part.deaths %>
-                          </p>
+                      <td>
+                        <%= part.deaths %>
                       </td>
-                      <td class="table-data">
-                          <p class="text-gray-900 whitespace-no-wrap">
-                            <%= part.teamkills %>
-                          </p>
+                      <td>
+                        <%= part.teamkills %>
                       </td>
-                      <td class="table-data">
-                          <p class="text-gray-900 whitespace-no-wrap">
-                            <%= part.teamdeaths %>
-                          </p>
+                      <td>
+                        <%= part.teamdeaths %>
                       </td>
                   </tr>
                 <% end %>
@@ -326,25 +298,25 @@
   </div>
   <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
       <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
-          <table class="min-w-full leading-normal">
+          <table>
               <thead>
                   <tr>
-                      <th scope="col" class="table-header-first">
+                      <th scope="col">
                           Name
                       </th>
-                      <th scope="col" class="table-header">
+                      <th scope="col">
                           Kills
                       </th>
-                      <th scope="col" class="table-header">
+                      <th scope="col">
                           Deaths
                       </th>
-                      <th scope="col" class="table-header">
+                      <th scope="col">
                           Team Kills
                       </th>
-                      <th scope="col" class="table-header">
+                      <th scope="col">
                           Team Deaths
                       </th>
-                      <th scope="col" class="table-header">
+                      <th scope="col">
                           Rounds
                       </th>
                   </tr>
@@ -352,35 +324,23 @@
               <tbody>
                 <%= for map <- @player.maps do %>
                   <tr>
-                      <td class="table-data-first">
-                          <p class="text-gray-900 whitespace-no-wrap">
-                              <%= map.map.name %>
-                          </p>
+                      <td>
+                          <%= map.map.name %>
                       </td>
-                      <td class="table-data">
-                          <p class="text-gray-900 whitespace-no-wrap">
+                      <td>
                             <%= map.kills %>
-                          </p>
                       </td>
-                      <td class="table-data">
-                          <p class="text-gray-900 whitespace-no-wrap">
-                            <%= map.deaths %>
-                          </p>
+                      <td>
+                        <%= map.deaths %>
                       </td>
-                      <td class="table-data">
-                          <p class="text-gray-900 whitespace-no-wrap">
-                            <%= map.teamkills %>
-                          </p>
+                      <td>
+                        <%= map.teamkills %>
                       </td>
-                      <td class="table-data">
-                          <p class="text-gray-900 whitespace-no-wrap">
+                      <td>
                             <%= map.teamdeaths %>
-                          </p>
                       </td>
-                      <td class="table-data">
-                          <p class="text-gray-900 whitespace-no-wrap">
+                      <td>
                             <%= map.rounds %>
-                          </p>
                       </td>
                   </tr>
                 <% end %>
