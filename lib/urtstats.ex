@@ -37,8 +37,28 @@ defmodule Urtstats do
   end
 
   def player(player_id) do
-    Repo.one(from p in Player, where: p.id == ^player_id)
-    |> Repo.preload([:stats, :maps, :body_parts, :weapons, :fragged, :fragged_by])
+    Repo.one(
+      from p in Player,
+        where: p.id == ^player_id,
+        left_join: stats in assoc(p, :stats),
+        left_join: weapons in assoc(p, :weapons),
+        left_join: weapon in assoc(weapons, :weapon),
+        left_join: maps in assoc(p, :maps),
+        left_join: map in assoc(maps, :map),
+        left_join: body_parts in assoc(p, :body_parts),
+        left_join: fragged in assoc(p, :fragged),
+        left_join: target in assoc(fragged, :target),
+        left_join: fragged_by in assoc(p, :fragged_by),
+        left_join: killer in assoc(fragged_by, :killer),
+        preload: [
+          stats: stats,
+          weapons: {weapons, weapon: weapon},
+          maps: {maps, map: map},
+          body_parts: body_parts,
+          fragged: {fragged, target: target},
+          fragged_by: {fragged_by, killer: killer},
+        ]
+    )
   end
 
   def all_penalties do

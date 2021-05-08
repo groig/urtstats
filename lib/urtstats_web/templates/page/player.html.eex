@@ -1,4 +1,391 @@
 <div class="container mx-auto px-4 sm:px-8 ">
-          <h1 class="py-2 text-3xl text-center">Stats for <%= @player.name %></h1>
-    </div>
+  <h1 class="py-2 text-3xl text-center">Stats for <%= @player.name %></h1>
+  <div class="flex flex-wrap my-8 dark:text-white">
+      <div class="w-full border-b md:w-1/2 md:border-r lg:w-1/3 p-6">
+          <div class="flex items-center mb-6">
+              <div class="text-xl">
+                  Player Name
+              </div>
+          </div>
+          <p class="leading-loose text-gray-500 dark:text-gray-200 text-md">
+            <%= @player.name %>
+          </p>
+      </div>
+      <div class="w-full border-b md:w-1/2 lg:w-1/3 lg:border-r p-6">
+          <div class="flex items-center mb-6">
+              <div class="text-xl">
+                  Skill
+              </div>
+          </div>
+          <p class="leading-loose text-gray-500 dark:text-gray-200 text-md">
+            <%= Decimal.round(@player.stats.skill, 2) %>
+          </p>
+      </div>
+      <div class="w-full border-b md:w-1/2 md:border-r lg:w-1/3 lg:border-r-0 p-6">
+          <div class="flex items-center mb-6">
+              <div class="text-xl">
+                  Ratio
+              </div>
+          </div>
+          <p class="leading-loose text-gray-500 dark:text-gray-200 text-md">
+            <%= Decimal.round(@player.stats.ratio, 2) %>
+          </p>
+      </div>
+      <div class="w-full border-b md:w-1/2 md:border-r lg:w-1/3 p-6">
+          <div class="flex items-center mb-6">
+              <div class="text-xl">
+                  Kills
+              </div>
+          </div>
+          <p class="leading-loose text-gray-500 dark:text-gray-200 text-md">
+            <%= @player.stats.kills %>
+          </p>
+      </div>
+      <div class="w-full border-b md:w-1/2 lg:w-1/3 lg:border-r p-6">
+          <div class="flex items-center mb-6">
+              <div class="text-xl">
+                  Deaths
+              </div>
+          </div>
+          <p class="leading-loose text-gray-500 dark:text-gray-200 text-md">
+            <%= @player.stats.deaths %>
+          </p>
+      </div>
+      <div class="w-full border-b md:w-1/2 md:border-r lg:w-1/3 lg:border-r-0 p-6">
+          <div class="flex items-center mb-6">
+              <div class="text-xl">
+                  Assists
+              </div>
+          </div>
+          <p class="leading-loose text-gray-500 dark:text-gray-200 text-md">
+            <%= @player.stats.assists %>
+          </p>
+      </div>
+      <div class="w-full border-b md:w-1/2 md:border-r lg:w-1/3 p-6">
+          <div class="flex items-center mb-6">
+              <div class="text-xl">
+                  Team Kills
+              </div>
+          </div>
+          <p class="leading-loose text-gray-500 dark:text-gray-200 text-md">
+            <%= @player.stats.teamkills %>
+          </p>
+      </div>
+      <div class="w-full border-b md:w-1/2 lg:w-1/3 lg:border-r p-6">
+          <div class="flex items-center mb-6">
+              <div class="text-xl">
+                  Team Deaths
+              </div>
+          </div>
+          <p class="leading-loose text-gray-500 dark:text-gray-200 text-md">
+            <%= @player.stats.teamdeaths %>
+          </p>
+      </div>
+      <div class="w-full border-b md:w-1/2 md:border-r lg:w-1/3 lg:border-r-0 p-6">
+          <div class="flex items-center mb-6">
+              <div class="text-xl">
+                  Suicides
+              </div>
+          </div>
+          <p class="leading-loose text-gray-500 dark:text-gray-200 text-md">
+            <%= @player.stats.suicides %>
+          </p>
+      </div>
+      <div class="w-full border-b md:w-1/2 md:border-r lg:w-1/3 p-6">
+          <div class="flex items-center mb-6">
+              <div class="text-xl">
+                  Kill Streak
+              </div>
+          </div>
+          <p class="leading-loose text-gray-500 dark:text-gray-200 text-md">
+            <%= @player.stats.curstreak %>
+          </p>
+      </div>
+      <div class="w-full border-b md:w-1/2 lg:w-1/3 lg:border-r p-6">
+          <div class="flex items-center mb-6">
+              <div class="text-xl">
+                  Win Streak
+              </div>
+          </div>
+          <p class="leading-loose text-gray-500 dark:text-gray-200 text-md">
+            <%= @player.stats.winstreak %>
+          </p>
+      </div>
+      <div class="w-full border-b md:w-1/2 md:border-r lg:w-1/3 lg:border-r-0 p-6">
+          <div class="flex items-center mb-6">
+              <div class="text-xl">
+                  Lose Streak
+              </div>
+          </div>
+          <p class="leading-loose text-gray-500 dark:text-gray-200 text-md">
+            <%= @player.stats.losestreak %>
+          </p>
+      </div>
+  </div>
+
+  <div class="flex flex-row mb-1 sm:mb-0 justify-between w-full">
+      <h2 class="text-2xl leading-tight">
+          Weapons
+      </h2>
+  </div>
+  <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+      <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
+          <table class="min-w-full leading-normal">
+              <thead>
+                  <tr>
+                      <th scope="col" class="table-header-first">
+                          Name
+                      </th>
+                      <th scope="col" class="table-header">
+                          Kills
+                      </th>
+                      <th scope="col" class="table-header">
+                          Deaths
+                      </th>
+                      <th scope="col" class="table-header">
+                          Team Kills
+                      </th>
+                      <th scope="col" class="table-header">
+                          Team Deaths
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
+                <%= for weapon <- @player.weapons do %>
+                  <tr>
+                      <td class="table-data-first">
+                          <p class="text-gray-900 whitespace-no-wrap">
+                              <%= Urtstats.Stats.Weapon.get_weapon_name(weapon.weapon.name) %>
+                          </p>
+                      </td>
+                      <td class="table-data">
+                          <p class="text-gray-900 whitespace-no-wrap">
+                            <%= weapon.kills %>
+                          </p>
+                      </td>
+                      <td class="table-data">
+                          <p class="text-gray-900 whitespace-no-wrap">
+                            <%= weapon.deaths %>
+                          </p>
+                      </td>
+                      <td class="table-data">
+                          <p class="text-gray-900 whitespace-no-wrap">
+                            <%= weapon.teamkills %>
+                          </p>
+                      </td>
+                      <td class="table-data">
+                          <p class="text-gray-900 whitespace-no-wrap">
+                            <%= weapon.teamdeaths %>
+                          </p>
+                      </td>
+                  </tr>
+                <% end %>
+              </tbody>
+          </table>
+      </div>
+  </div>
+  <div class="flex flex-row mb-1 sm:mb-0 justify-between w-full">
+      <h2 class="text-2xl leading-tight">
+          Players Killed
+      </h2>
+  </div>
+  <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+      <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
+          <table class="min-w-full leading-normal">
+              <thead>
+                  <tr>
+                      <th scope="col" class="table-header-first">
+                          Name
+                      </th>
+                      <th scope="col" class="table-header">
+                          Kills
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
+                <%= for fragged <- @player.fragged do %>
+                  <tr>
+                      <td class="table-data-first">
+                          <p class="text-gray-900 whitespace-no-wrap">
+                              <%= fragged.target.name %>
+                          </p>
+                      </td>
+                      <td class="table-data">
+                          <p class="text-gray-900 whitespace-no-wrap">
+                            <%= fragged.kills %>
+                          </p>
+                      </td>
+                  </tr>
+                <% end %>
+              </tbody>
+          </table>
+      </div>
+  </div>
+  <div class="flex flex-row mb-1 sm:mb-0 justify-between w-full">
+      <h2 class="text-2xl leading-tight">
+          Killed By
+      </h2>
+  </div>
+  <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+      <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
+          <table class="min-w-full leading-normal">
+              <thead>
+                  <tr>
+                      <th scope="col" class="table-header-first">
+                          Name
+                      </th>
+                      <th scope="col" class="table-header">
+                          Deaths
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
+                <%= for fragged_by <- @player.fragged_by do %>
+                  <tr>
+                      <td class="table-data-first">
+                          <p class="text-gray-900 whitespace-no-wrap">
+                              <%= fragged_by.killer.name %>
+                          </p>
+                      </td>
+                      <td class="table-data">
+                          <p class="text-gray-900 whitespace-no-wrap">
+                            <%= fragged_by.kills %>
+                          </p>
+                      </td>
+                  </tr>
+                <% end %>
+              </tbody>
+          </table>
+      </div>
+  </div>
+  <div class="flex flex-row mb-1 sm:mb-0 justify-between w-full">
+      <h2 class="text-2xl leading-tight">
+          Body Parts
+      </h2>
+  </div>
+  <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+      <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
+          <table class="min-w-full leading-normal">
+              <thead>
+                  <tr>
+                      <th scope="col" class="table-header-first">
+                          Name
+                      </th>
+                      <th scope="col" class="table-header">
+                          Kills
+                      </th>
+                      <th scope="col" class="table-header">
+                          Deaths
+                      </th>
+                      <th scope="col" class="table-header">
+                          Team Kills
+                      </th>
+                      <th scope="col" class="table-header">
+                          Team Deaths
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
+                <%= for part <- @player.body_parts do %>
+                  <tr>
+                      <td class="table-data-first">
+                          <p class="text-gray-900 whitespace-no-wrap">
+                              <%= Urtstats.Stats.PlayerBody.get_body_part_name(part.bodypart_id) %>
+                          </p>
+                      </td>
+                      <td class="table-data">
+                          <p class="text-gray-900 whitespace-no-wrap">
+                            <%= part.kills %>
+                          </p>
+                      </td>
+                      <td class="table-data">
+                          <p class="text-gray-900 whitespace-no-wrap">
+                            <%= part.deaths %>
+                          </p>
+                      </td>
+                      <td class="table-data">
+                          <p class="text-gray-900 whitespace-no-wrap">
+                            <%= part.teamkills %>
+                          </p>
+                      </td>
+                      <td class="table-data">
+                          <p class="text-gray-900 whitespace-no-wrap">
+                            <%= part.teamdeaths %>
+                          </p>
+                      </td>
+                  </tr>
+                <% end %>
+              </tbody>
+          </table>
+      </div>
+  </div>
+  <div class="flex flex-row mb-1 sm:mb-0 justify-between w-full">
+      <h2 class="text-2xl leading-tight">
+          Maps
+      </h2>
+  </div>
+  <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+      <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
+          <table class="min-w-full leading-normal">
+              <thead>
+                  <tr>
+                      <th scope="col" class="table-header-first">
+                          Name
+                      </th>
+                      <th scope="col" class="table-header">
+                          Kills
+                      </th>
+                      <th scope="col" class="table-header">
+                          Deaths
+                      </th>
+                      <th scope="col" class="table-header">
+                          Team Kills
+                      </th>
+                      <th scope="col" class="table-header">
+                          Team Deaths
+                      </th>
+                      <th scope="col" class="table-header">
+                          Rounds
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
+                <%= for map <- @player.maps do %>
+                  <tr>
+                      <td class="table-data-first">
+                          <p class="text-gray-900 whitespace-no-wrap">
+                              <%= map.map.name %>
+                          </p>
+                      </td>
+                      <td class="table-data">
+                          <p class="text-gray-900 whitespace-no-wrap">
+                            <%= map.kills %>
+                          </p>
+                      </td>
+                      <td class="table-data">
+                          <p class="text-gray-900 whitespace-no-wrap">
+                            <%= map.deaths %>
+                          </p>
+                      </td>
+                      <td class="table-data">
+                          <p class="text-gray-900 whitespace-no-wrap">
+                            <%= map.teamkills %>
+                          </p>
+                      </td>
+                      <td class="table-data">
+                          <p class="text-gray-900 whitespace-no-wrap">
+                            <%= map.teamdeaths %>
+                          </p>
+                      </td>
+                      <td class="table-data">
+                          <p class="text-gray-900 whitespace-no-wrap">
+                            <%= map.rounds %>
+                          </p>
+                      </td>
+                  </tr>
+                <% end %>
+              </tbody>
+          </table>
+      </div>
+  </div>
 </div>
