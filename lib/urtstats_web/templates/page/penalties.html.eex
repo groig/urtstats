@@ -29,7 +29,7 @@
                       <%= for penalty <- @penalties do %>
                         <tr>
                             <td class="table-data-first">
-                              <%= penalty.player.name %>
+                              <%= link penalty.player.name, to: Routes.page_path(@conn, :player, penalty.player.id), class: "mr-10 underline text-blue-600 hover:text-blue-800 visited:text-purple-600"%>
                             </td>
                             <td class="table-data">
                               <%= penalty.type %>
