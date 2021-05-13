@@ -15,7 +15,8 @@ import "../css/app.scss";
 //import "phoenix_html"
 
 import { DataTable } from "simple-datatables";
-const tables = document.getElementsByTagName("table");
+
+const tables = document.getElementsByClassName("datatable");
 Array.from(tables).forEach(table => {
   new DataTable(table);
 });

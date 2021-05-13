@@ -27,6 +27,6 @@ defmodule Urtstats.Stats.PlayerBody do
   end
 
   def get_body_part_name(id) do
-    Map.get(@body_parts, id)
+    Map.get(@body_parts, id, "UNIDENTIFIED")
   end
 end
