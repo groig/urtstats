@@ -6,7 +6,6 @@ defmodule UrtstatsWeb.PageController do
     current_map = Urtstats.get_current_map()
     current_game_type = Urtstats.get_current_gametype()
     current_clients = Urtstats.all_clients()
-
     render(conn, "index.html",
       players: players,
       current_map: current_map.value,
